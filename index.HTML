@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    * {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+    body {
+      background: #141b29;
+    }
+    #navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    #container {
+      /* width: 200px; */
+      margin: 0px auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      background-color: #192133;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+
+    #container:first-child {
+      margin-top: 10px;
+    }
+    #container:last-child {
+      margin-bottom: 10px;
+    }
+    #container > div {
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    #container > div > img {
+      width: 100%;
+    }
+    #recommend {
+      width: 90%;
+      margin: 50px auto;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    a {
+      text-decoration: none;
+    }
+
+    input {
+      background-color: transparent;
+      border: 0;
+      border-bottom: 1px solid rgb(174, 174, 174);
+      width: 200px;
+      float: right;
+      right: 0;
+    }
+
+    input::placeholder {
+      color: rgb(174, 174, 174);
+    }
+
+    input:focus {
+      animation: width-inc 0.5s linear forwards;
+      outline: none;
+    }
+
+    @keyframes width-inc {
+      from {
+        width: 200px;
+      }
+      to {
+        width: 300px;
+      }
+    }
+
+    #recommend > div {
+      border-radius: 20px;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    #recommend > div > img {
+      border-radius: 20px;
+    }
+    #recommend > div:hover {
+      transform: scale(1.05);
+      transition: all 0.1s linear;
+    }
+    #recommend > div:hover > img {
+      transform: scale(1.1);
+      transition: all 0.5s linear;
+    }
+    #recommend > div > div {
+      opacity: 0;
+      position: absolute;
+      transition: all 0.5s linear;
+      background: linear-gradient(
+        to bottom,
+        rgba(4, 8, 15, 0),
+        #192133,
+        #192133
+      );
+      width: 100%;
+      padding: 0 20px;
+      bottom: 0;
+      box-sizing: border-box;
+    }
+    #recommend > div:hover > div {
+      opacity: 1;
+    }
+
+    form {
+      width: 300px;
+      position: relative;
+      /* display: flex;
+      justify-content: flex-end; */
+    }
+
+    form > div {
+      width: fit-content;
+      width: 100%;
+      max-height: 500px;
+      overflow-y: scroll;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      position: absolute;
+      top: 22px;
+      z-index: 99999;
+    }
+
+    form > div::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* slider for -------------------------------------------------------*/
+    #slider > * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Verdana, sans-serif;
+      margin: 0;
+    }
+    .mySlides {
+      display: none;
+      height: 100%;
+    }
+    img {
+      vertical-align: middle;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+      height: 500px;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0.4;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    main > h2 {
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    #slider + h2 {
+      width: 90%;
+      margin: auto;
+    }
+  </style>
+  <body>
+    <nav id="navbar">
+      <div>
+        <a href="index.html">
+          <h2>Home</h2>
+        </a>
+      </div>
+      <form>
+        <input
+          type="text"
+          id="query"
+          placeholder="Search"
+          oninput="debounce(searchMovie,500)"
+        />
+        <div id="container"></div>
+      </form>
+    </nav>
+    <main>
+      <div id="slider">
+        <div class="slideshow-container">
+          <div class="mySlides fade">
+            <img
+              src="https://cutewallpaper.org/21/your-name-anime-download/Download-the-critically-acclaimed-Your-Name-in-HD-for-7-+-.jpg"
+              style="width: 100%; height: 100%"
+            />
+          </div>
+
+          <div class="mySlides fade">
+            <img
+              src="https://wallpapercave.com/wp/wp1817975.jpg"
+              style="width: 100%; height: 100%"
+            />
+          </div>
+
+          <div class="mySlides fade">
+            <img
+              src="https://wallpaperaccess.com/full/5000968.jpg"
+              style="width: 100%; height: 100%"
+            />
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">❮</a>
+          <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+        <br />
+
+        <div style="text-align: center">
+          <span class="dot" onclick="currentSlide(0)"></span>
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+      </div>
+      <h2>Recommendations :</h2>
+      <div id="recommend"></div>
+    </main>
+  </body>
+</html>
+
+<!-- https://api.themoviedb.org/3/discover/movie?api_key=90b9b4a9013b7f2b55af96973ed826a1&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate -->
+
+<!-- https://api.themoviedb.org/3/trending/movie/day?api_key=90b9b4a9013b7f2b55af96973ed826a1 -->
+
+<!-- https://api.themoviedb.org/3/search/movie?api_key=90b9b4a9013b7f2b55af96973ed826a1&language=en-US&page=1&include_adult=false&query=ms dhoni -->
+
+<!-- https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg -->
+<script>
+  async function searchMovie() {
+    const query = document.querySelector("#query").value;
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=90b9b4a9013b7f2b55af96973ed826a1&language=en-US&page=1&include_adult=false&query=${query}`;
+
+    if (query !== "") {
+      try {
+        const fetchData = await fetch(url);
+        const data = await fetchData.json();
+        if (data === undefined) {
+          return false;
+        }
+        console.log(data.results);
+        appendData(data.results);
+      } catch (err) {}
+    } else {
+      document.querySelector("#container").innerHTML = "";
+    }
+  }
+  let id;
+  async function debounce(func, delay) {
+    if (id) {
+      clearTimeout(id);
+    }
+    id = setTimeout(() => {
+      func();
+    }, delay);
+  }
+
+  function appendData(data) {
+    const container = document.querySelector("#container");
+    container.innerHTML = "";
+    data
+      .sort((a, b) => {
+        return b.vote_average - a.vote_average;
+      })
+      .forEach((elem) => {
+        const card = document.createElement("div");
+        const info = document.createElement("div");
+
+        const title = document.createElement("p");
+        title.innerText = elem.title;
+
+        const imdb = document.createElement("p");
+        imdb.innerText = `IMDb Rating : ${elem.vote_average}`;
+
+        info.append(title, imdb);
+
+        const img = document.createElement("img");
+        if (elem.poster_path === null) {
+          img.src =
+            "https://www.prokerala.com/movies/assets/img/no-poster-available.jpg";
+        } else {
+          img.src = `https://image.tmdb.org/t/p/w500/${elem.poster_path}`;
+        }
+        card.style.height = "100px";
+        card.style.display = "flex";
+        card.style.alignItems = "center";
+        card.style.gap = "20px";
+        img.style.width = "60px";
+        img.style.height = "100%";
+        card.append(img, info);
+        card.addEventListener("click", () => {
+          localStorage.setItem("moviesDetail", JSON.stringify(elem));
+          window.location.href = "./page.html";
+        });
+        container.append(card);
+      });
+  }
+
+  //   slider
+
+  let slideIndex = 0;
+  let slideid = setInterval(() => {
+    showSlides(++slideIndex);
+  }, 3000);
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides((slideIndex += n));
+  }
+
+  function currentSlide(n) {
+    showSlides((slideIndex = n));
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    clearInterval(slideid);
+    slideid = setInterval(() => {
+      showSlides(++slideIndex);
+    }, 3000);
+    if (n > slides.length - 1) {
+      slideIndex = 0;
+    }
+    if (n < 0) {
+      slideIndex = slides.length - 1;
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex].style.display = "block";
+    dots[slideIndex].className += " active";
+  }
+
+  fetch(
+    "https://api.themoviedb.org/3/discover/movie?api_key=90b9b4a9013b7f2b55af96973ed826a1&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=2&with_watch_monetization_types=flatrate"
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      appendRecommendedData(res.results);
+    });
+
+  function appendRecommendedData(data) {
+    const container = document.querySelector("#recommend");
+
+    container.innerHTML = "";
+    data
+      .sort((a, b) => {
+        return b.vote_average - a.vote_average;
+      })
+      .forEach((elem) => {
+        const card = document.createElement("div");
+        const info = document.createElement("div");
+
+        const title = document.createElement("p");
+        title.innerText = elem.title;
+
+        const release = document.createElement("p");
+        release.innerText = `Released : ${elem.release_date}`;
+
+        const imdb = document.createElement("p");
+        imdb.innerText = `IMDb Rating : ${elem.vote_average}`;
+
+        info.append(title, release, imdb);
+
+        const img = document.createElement("img");
+        if (elem.poster_path === null) {
+          img.src =
+            "https://www.prokerala.com/movies/assets/img/no-poster-available.jpg";
+        } else {
+          img.src = `https://image.tmdb.org/t/p/w500/${elem.poster_path}`;
+        }
+        img.style.width = "100%";
+        img.style.height = "100%";
+        card.append(img, info);
+        card.addEventListener("click", () => {
+          localStorage.setItem("moviesDetail", JSON.stringify(elem));
+          window.location.href = "./page.html";
+        });
+        container.append(card);
+      });
+  }
+</script>
